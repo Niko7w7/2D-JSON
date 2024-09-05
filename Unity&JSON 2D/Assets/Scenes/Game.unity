@@ -1661,9 +1661,10 @@ Transform:
   m_LocalPosition: {x: -4.83, y: -2.18, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1058969928}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &803796527
 MonoBehaviour:
@@ -1681,6 +1682,7 @@ MonoBehaviour:
   fuerzaJump: 7
   movimientoH: 0
   playerTransform: {fileID: 0}
+  enPiso: 0
 --- !u!50 &803796529
 Rigidbody2D:
   serializedVersion: 4
@@ -1795,12 +1797,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1058969925}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.52, y: 2.03, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 803796526}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1058969929
@@ -1868,7 +1870,7 @@ Transform:
   - {fileID: 1587207292}
   - {fileID: 522645921}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!156049354 &1510601472
 Grid:
@@ -1896,7 +1898,7 @@ GameObject:
   - component: {fileID: 1587207295}
   m_Layer: 0
   m_Name: Platform
-  m_TagString: Untagged
+  m_TagString: Piso
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
