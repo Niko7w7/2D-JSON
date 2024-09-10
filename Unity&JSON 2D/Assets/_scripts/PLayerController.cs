@@ -21,6 +21,8 @@ public class PLayerController : MonoBehaviour
 
     public bool enPiso = false;
 
+    public GameObject CheckPoint;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -57,6 +59,7 @@ public class PLayerController : MonoBehaviour
         if (Input.GetButton("Jump") && enPiso)
         {
             animator.SetBool("Jump", true);
+            //Debug.Log("Se ejecuta");
             rb.AddForce(new Vector2(0, fuerzaJump), ForceMode2D.Impulse);
             enPiso = false;
         }
@@ -71,4 +74,25 @@ public class PLayerController : MonoBehaviour
         }
     }
     //Salto
+
+    //Daño Enemigo 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Enemy"))
+        {
+            Debug.Log("Este eh Sech");
+        }
+        Debug.Log("El pepe");
+    }
+    public void PlayerDeath()
+    {
+
+    }
+    public void RespawnCheckpoint() 
+    {
+        if (Checkpoint.activeCheckPoint)
+        {
+
+        }
+    }
 }
