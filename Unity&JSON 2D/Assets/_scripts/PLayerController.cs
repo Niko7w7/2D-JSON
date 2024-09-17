@@ -21,7 +21,6 @@ public class PLayerController : MonoBehaviour
 
     public bool enPiso = false;
 
-    public GameObject CheckPoint;
 
     void Start()
     {
@@ -63,14 +62,15 @@ public class PLayerController : MonoBehaviour
             rb.AddForce(new Vector2(0, fuerzaJump), ForceMode2D.Impulse);
             enPiso = false;
         }
-        
+      
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Piso"))
         {
             enPiso = true;
-            Debug.Log("Estas en el piso"); 
+            animator.SetBool("Jump", false); 
+            Debug.Log("Estas en el piso");
         }
     }
     //Salto
@@ -81,18 +81,26 @@ public class PLayerController : MonoBehaviour
         if (collision.CompareTag("Enemy"))
         {
             Debug.Log("Este eh Sech");
+            //gameObject.SetActive(false);
+            PlayerDeath();
         }
         Debug.Log("El pepe");
     }
     public void PlayerDeath()
     {
-
+        RespawnCheckpoint();
     }
-    public void RespawnCheckpoint() 
-    {
-        if (Checkpoint.activeCheckPoint)
-        {
 
+    public void RespawnCheckpoint()
+    {
+        if (CheckPoint.instance !=null)
+        {
+            float playerPosX = PlayerPrefs.GetFloat("PlayerPosX");
+            float playerPosY = PlayerPrefs.GetFloat("PlayerPosY");
+
+            Vector3 respawnPosition = new Vector3(playerPosX, playerPosY, playerTransform.position.z);
+            playerTransform.position = respawnPosition;
         }
     }
+
 }

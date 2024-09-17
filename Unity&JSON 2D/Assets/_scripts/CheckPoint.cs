@@ -4,23 +4,25 @@ using UnityEngine;
 
 public class CheckPoint : MonoBehaviour
 {
-    public static CheckPoint activeCheckpoint;
 
-    public bool Activated = false;
+    public bool Activated = true;
 
-    private void OntriggerEnter2D(Collider2D other)
+    public static CheckPoint instance;
+
+
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player") && !Activated)
         {
             Activated = true;
 
-            activeCheckpoint = this;
+            instance = this;
 
-            PlayerPrefs.SetFloat("PlayerPosX".other.transform.position.x);
-            PlayerPrefs.SetFloat("PlayerPosY".other.transform.position.y);
+            PlayerPrefs.SetFloat("PlayerPosX", other.transform.position.x);
+            PlayerPrefs.SetFloat("PlayerPosY", other.transform.position.y);
 
             PlayerPrefs.Save();
+            Debug.Log("Funciona :D");
         }
-    } 
+    }
 }
-    
